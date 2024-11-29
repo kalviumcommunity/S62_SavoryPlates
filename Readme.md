@@ -5,7 +5,7 @@ SavoryPlates is a cooking recipe application that allows users to browse a varie
 
 
 
-# Key Features
+# Key Features:
 
 1. Recipe Browsing
 
