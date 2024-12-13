@@ -24,3 +24,5 @@ SavoryPlates is a cooking recipe application that allows users to browse a varie
     Add recipes to specific days of the week.
 
     View and edit planned meals anytime.
+
+Render deploy link:https://s62-savoryplates.onrender.com/ping
