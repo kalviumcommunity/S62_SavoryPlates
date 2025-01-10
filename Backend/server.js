@@ -2,7 +2,7 @@ if(process.env.NODE_ENV !=='PRODUCTION'){
     require('dotenv').config();
 }
 const express = require('express');
-const {getDB,connection} = require('./DB/mongo-client.js');
+const {getDB,connection} = require('./db/mongo-client.js');
 
 const app = express();
 const port = process.env.PORT || 3000;

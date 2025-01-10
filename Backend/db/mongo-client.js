@@ -6,7 +6,7 @@ const mongoClient = require('mongodb').MongoClient;
 
 const connection = new mongoClient(process.env.DB_URL)
 async function getDB(){
-    let db = connection.db("S62_DumbDeals");
+    let db = connection.db("S62_SavoryPlates");
     db=db.collection('Users');
     return db;
 }
