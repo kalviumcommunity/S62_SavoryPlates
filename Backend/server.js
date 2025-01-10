@@ -1,19 +1,20 @@
-if(process.env.NODE_ENV!=='PRODUCTION'){
-    require('dotenv').config()
+if(process.env.NODE_ENV !=='PRODUCTION'){
+    require('dotenv').config();
 }
-const mongoose=require('mongoose')
 const express = require('express');
-const connectDatabase = require('./db/database');
-const app =express();
-const PORT=process.env.PORT||3010
-app.get('/ping',(request,response)=>{
-    return response.send('pong')
-})
-app.get('/',(req,res)=>{
-    const status=mongoose.connection.readyState===1?'Connected':'Not Connected';
-    res.send({status})
-})
-app.listen(PORT,()=>{
-    connectDatabase()
-    console.log(`server is running in http://localhost:${PORT}`)
-})
+const {getDB,connection} = require('./DB/mongo-client.js');
+
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.get('/', async (req, res) => {
+    const checkStatus = await connection.connect();
+    const readyState = connection.topology.isConnected()
+    ? 'connected'
+    : 'disconnected';
+    res.send(`<h3>Database Connection Status : ${readyState}</h3>`);
+});
+
+app.listen(port,()=>{
+    console.log(`Your server is running on http://localhost:${port}`);
+});
