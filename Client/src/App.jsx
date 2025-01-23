@@ -4,6 +4,7 @@
 import './App.css'
 import {BrowserRouter as Router,Route,Routes} from 'react-router-dom';
 import LandingPage from './components/LandingPage';
+import SingleRecipePage from './components/SingleRecipePage';
 
 function App() {
   
@@ -12,6 +13,8 @@ function App() {
     <Router>
       <Routes>
         <Route path='/' element={<LandingPage/>}/>
+        <Route path='/single' element={<SingleRecipePage/>}/>
+
       </Routes>
     </Router>
   )
