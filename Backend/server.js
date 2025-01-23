@@ -2,9 +2,12 @@ if(process.env.NODE_ENV !=='PRODUCTION'){
     require('dotenv').config();
 }
 const express = require('express');
-const {getDB,connection} = require('./db/mongo-client.js');
+const {getDB,connection} = require('./src/db/mongo-client.js');
+const router=require('./src/routes/routes.js')
 
 const app = express();
+app.use(express.json())
+app.use('/CRUD',router);
 const port = process.env.PORT || 3000;
 
 app.get('/', async (req, res) => {
