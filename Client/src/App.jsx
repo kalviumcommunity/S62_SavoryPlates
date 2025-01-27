@@ -5,6 +5,7 @@ import './App.css'
 import {BrowserRouter as Router,Route,Routes} from 'react-router-dom';
 import LandingPage from './components/LandingPage';
 import SingleRecipePage from './components/SingleRecipePage';
+import RecipeEntities from './components/entities';
 
 function App() {
   
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path='/' element={<LandingPage/>}/>
         <Route path='/single' element={<SingleRecipePage/>}/>
+        <Route path='/entities' element={<RecipeEntities/>}/>
 
       </Routes>
     </Router>
