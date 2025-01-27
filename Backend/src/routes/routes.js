@@ -5,7 +5,7 @@ const { ObjectId } = require('mongodb');
 const {getDB} = require('../db/mongo-client.js');
 router.use(express.json())
 
-router.get('/user',async(req,res)=>{
+router.get('/recipe',async(req,res)=>{
     try{
         const db=await getDB();
         console.log(db);
