@@ -4,9 +4,11 @@ if(process.env.NODE_ENV !=='PRODUCTION'){
 const express = require('express');
 const {getDB,connection} = require('./src/db/mongo-client.js');
 const router=require('./src/routes/routes.js')
+const cors=require('cors')
 
 const app = express();
 app.use(express.json())
+app.use(cors())
 app.use('/CRUD',router);
 const port = process.env.PORT || 3000;
 

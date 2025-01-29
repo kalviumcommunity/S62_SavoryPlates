@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function RecipeEntities() {
     const [recipes, setRecipes] = useState([]);
@@ -81,10 +82,35 @@ function RecipeEntities() {
           color: "#4a5562",
         },
       };
+      const navigate=useNavigate();
+      const handleClick = () => {
+        navigate('/add-entities'); // Navigates to /add-entities when the button is clicked
+      };
+    
     
       return (
         <div style={styles.container}>
           <h1 style={styles.header}>🍽️ Recipe Collection</h1>
+          <br/>
+          <button
+      onClick={handleClick}
+      style={{
+        padding: '10px 20px',
+        fontSize: '16px',
+        backgroundColor: '#4CAF50',
+        color: 'white',
+        border: 'none',
+        borderRadius: '5px',
+        cursor: 'pointer',
+        transition: 'background-color 0.3s ease',
+      }}
+      onMouseOver={(e) => e.target.style.backgroundColor = '#45a049'}
+      onMouseOut={(e) => e.target.style.backgroundColor = '#4CAF50'}
+    >
+      Add Recipe
+    </button>
+    <br/>
+    
           <div style={styles.grid}>
             {recipes?.map((recipe) => (
               <div
