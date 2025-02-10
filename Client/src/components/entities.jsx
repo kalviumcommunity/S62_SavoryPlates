@@ -13,6 +13,19 @@ function RecipeEntities() {
             console.error("Error fetching recipes:", error);
         }
     };
+    const handleDelete = async (id) => {
+      
+          try {
+              await axios.delete(`http://localhost:3010/CRUD/${id}`);
+              setRecipes(recipes.filter(recipe => recipe._id !== id)); // Update UI
+          } catch (error) {
+              console.error("Error deleting recipe:", error);
+          }
+      
+  };
+  const handleEdit = (id) => {
+    navigate(`/edit-recipe/${id}`);
+  };
 
     useEffect(() => {
         fetchData();
@@ -152,6 +165,41 @@ function RecipeEntities() {
                     <li key={index}>{step}</li>
                   ))}
                 </ol>
+                <button
+                            onClick={() => handleDelete(recipe._id)}
+                            style={{
+                                marginTop: "12px",
+                                padding: "8px 12px",
+                                fontSize: "14px",
+                                backgroundColor: "#ff4d4d",
+                                color: "white",
+                                border: "none",
+                                borderRadius: "5px",
+                                cursor: "pointer",
+                                transition: "background-color 0.3s ease",
+                            }}
+                            onMouseOver={(e) => e.target.style.backgroundColor = "#e60000"}
+                            onMouseOut={(e) => e.target.style.backgroundColor = "#ff4d4d"}
+                        >
+                            🗑️ Delete
+                            </button>
+                            <button
+          onClick={() => handleEdit(recipe._id)}
+          style={{
+            padding: "8px 12px",
+            fontSize: "14px",
+            backgroundColor: "#ffcc00",
+            color: "black",
+            border: "none",
+            borderRadius: "5px",
+            cursor: "pointer",
+            transition: "background-color 0.3s ease",
+          }}
+          onMouseOver={(e) => e.target.style.backgroundColor = "#e6b800"}
+          onMouseOut={(e) => e.target.style.backgroundColor = "#ffcc00"}
+        >
+          ✏️ Edit
+        </button>
               </div>
             ))}
           </div>
