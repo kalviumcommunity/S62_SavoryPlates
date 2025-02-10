@@ -7,6 +7,7 @@ import LandingPage from './components/LandingPage';
 import SingleRecipePage from './components/SingleRecipePage';
 import RecipeEntities from './components/entities';
 import AddEntity from './components/AddEntityPage';
+import UpdateRecipePage from './components/UpdateEntity';
 
 function App() {
   
@@ -18,6 +19,8 @@ function App() {
         <Route path='/single' element={<SingleRecipePage/>}/>
         <Route path='/entities' element={<RecipeEntities/>}/>
         <Route path='/add-entities' element={<AddEntity/>}/>
+        <Route path="/edit-recipe/:id" element={< UpdateRecipePage />} />
+
 
 
       </Routes>
