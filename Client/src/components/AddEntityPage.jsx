@@ -99,6 +99,7 @@ function AddEntity() {
                     <label style={styles.label}>Author</label>
                     <input type="text" name="author" value={formData.author} onChange={handleChange} required style={styles.input} />
                 </div>
+                
 
                 <div style={styles.buttonGroup}>
                     <button type="submit" style={styles.buttonPrimary}>Submit</button>
